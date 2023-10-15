@@ -3,7 +3,10 @@ import os
 import sys
 
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('127.168.25.31', 8080))
+# clientSock.connect(('127.168.25.31', 8080))
+clientSock.connect(('127.168.50.1', 8080))
+
+
 
 print('연결에 성공했습니다.')
 filename = "data/data"
