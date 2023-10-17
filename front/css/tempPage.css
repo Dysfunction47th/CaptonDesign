@@ -33,8 +33,12 @@ body {
 }
 
 #logout {
-  background-color: #007bff;
-  color: #fff;
+  /* background-color: #007bff; */
+  background-color:#fff ;
+
+  /* color: #fff; */
+  color:aliceblue;
+
   border: none;
   padding: 10px 10px ;
   margin: 10px;
