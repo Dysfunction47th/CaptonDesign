@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*, java.sql.*"%>
+    <%request.setCharacterEncoding("utf-8"); %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,8 +38,7 @@
         <p id="1userName">
             
             <br>
-            <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a>
-            <!-- <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a>  -->
+            <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a> 
             <br>
             <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/cameraPage.html'">주방관리</a>    
         </p>

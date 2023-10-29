@@ -1,0 +1,7 @@
+# 카메라 인터페이스 활성화
+sudo raspi-config
+# 카메라를 활성화하는 옵션 선택
+
+# MJPEG 스트리밍 서버 설치 (mjpg-streamer)
+sudo apt-get update
+sudo apt-get install mjpg-streamer

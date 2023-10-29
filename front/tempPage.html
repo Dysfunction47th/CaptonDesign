@@ -7,15 +7,44 @@
   <script src="/back/LoginAndLogout/logout.js"></script>
   <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/back/graphJs/graph.js"></script>
+
+  <script>
+    // 데이터를 JSON 형식으로 생성
+    var jsonData = {
+      temperature: [-5.5, 6.2, 17.1, 26.8, 35.9],
+      humidity: [65.3, 12.7, 45.8, 77.1, 64.7],
+      dust: [23, 45, 72, 31, 84],
+      time: ["2023-06-11 10:00:00", "2023-06-11 11:00:00", "2023-06-11 12:00:00", "2023-06-11 13:00:00", "2023-06-11 14:00:00"]
+    };
+
+    // JSON 데이터를 문자열로 변환
+    var jsonDataString = JSON.stringify(jsonData);
+
+    // 세션 스토리지에 JSON 데이터 저장
+    sessionStorage.setItem("jsonData", jsonDataString);    
+        
+    
+  </script>
+
 </head>
 <body>
   <div class="container">
+    <div class="appName">
+      <h2>AI스마트식당</h2>
+    </div>
+
     <div class="bener"> 
         <h1>2. 온습도 관리 페이지</h1>
         <h1 id="logout" onclick="logout()"> logout </h1> 
         <!-- 매장 온습도를 클릭하는순간 db.jsp가 살행되고 바로 temp page로 이동되게 설계   -->
     </div>
     <p id="userName">
+      <a></a>
+    </p>
+
+    <p id="1userName">
         <a></a>
         <br>
         <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a> 
@@ -26,41 +55,125 @@
     </p>
 
 
+
     <div class="graph">
-      <svg width="100%" height="200px">
-        <rect x="0" y="0" width="100%" height="200px" fill="blue" />
       
-      </svg>
+
       <!-- this area is graph page  -->
+      <!-- <script>
+        // 페이지 로딩 시 그래프 생성 함수 호출
+        window.onload = function () {
+          createGraph()
+        };
       
+        // 이후 보안을 위해 로컬 스토리지 초기화
+      </script>   -->
+      <!-- 그래프를 표시할 canvas 요소 -->
+      <canvas id="dataChart" width="600" height="800"></canvas>
+
+
+      <script>
+          // 세션 스토리지에서 데이터 가져오기
+          var jsonData = sessionStorage.getItem("jsonData");
+          var data = JSON.parse(jsonData);
+
+          // 그래프를 그리기 위한 데이터
+          var ctx = document.getElementById('dataChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'line', // 선 그래프
+              data: {
+                  labels: data.time,
+                  datasets: [
+                      {
+                          label: '온도 (°C)',
+                          data: data.temperature,
+                          borderColor: 'rgb(255, 0, 0)',
+                          borderWidth: 2,
+                          fill: false
+                      },
+                      {
+                          label: '습도 (%)',
+                          data: data.humidity,
+                          borderColor: 'rgb(0, 0, 255)',
+                          borderWidth: 2,
+                          fill: false
+                      },
+                      {
+                          label: '미세먼지',
+                          data: data.dust,
+                          borderColor: 'rgb(0, 255, 0)',
+                          borderWidth: 2,
+                          fill: false
+                      }
+                  ]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false
+              }
+          });
+      </script>
     </div>
     
+
     <table class="table">
       <thead>
-        <tr>
-          <th>날짜</th>
-          <th>매장 온도</th>
-          <th>매장 습도</th>
-        </tr>
+          <tr>
+              <th>날짜</th>
+              <th>매장 온도</th>
+              <th>매장 습도</th>
+              <th>매장 미세먼지</th>
+          </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>2023-10-15</td>
-          <td>27℃</td>
-          <td>90%</td>
-        </tr>
-        <tr>
-          <td>2023-10-14</td>
-          <td>26℃</td>
-          <td>85%</td>
-        </tr>
-        <tr>
-          <td>2023-10-13</td>
-          <td>25℃</td>
-          <td>80%</td>
-        </tr>
+      <tbody id="table-body">
       </tbody>
     </table>
+  
+    <script>
+      var jsonDataString = sessionStorage.getItem("jsonData");
+      var jsonData = JSON.parse(jsonDataString);
+      // 테이블의 tbody 요소 가져오기
+      var tableBody = document.getElementById("table-body");
+
+      // 필터링 조건 설정 (온도가 -5°C 미만 또는 30°C 이상, 습도가 60% 미만 또는 80% 이상, 미세먼지 농도가 80 이상)
+      var filteredData = jsonData.time.map(function(time, index) {
+        var temperature = jsonData.temperature[index];
+        var humidity = jsonData.humidity[index];
+        var dust = jsonData.dust[index];
+
+        if (
+              (temperature < 10 || temperature >= 30) ||
+              (humidity < 60 || humidity >= 80) ||
+              dust >= 80
+          ) {
+              return {
+                  time: time,
+                  temperature: temperature,
+                  humidity: humidity,
+                  dust: dust
+              };
+          } else {
+              return null; // 조건에 맞지 않는 경우 null 반환
+          }
+        }).filter(function(data) {
+          return data !== null; // null이 아닌 데이터만 필터링
+        });
+
+        // 필터링된 데이터를 테이블에 추가
+        var tableBody = document.getElementById("table-body");
+
+        filteredData.forEach(function(data) {
+          var row = document.createElement("tr");
+          for (var key in data) {
+            var cell = document.createElement("td");
+            cell.textContent = data[key];
+            row.appendChild(cell);
+          }
+          tableBody.appendChild(row);
+        });
+
+      
+  </script>
   </div>
 </body>
 </html>

@@ -1,10 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*, java.sql.*"%>
+    <%request.setCharacterEncoding("utf-8"); %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Camera Page</title>
-  <link rel="stylesheet" href="/front/css/cameraPage.css">
+  <title>Temp Page</title>
+  <link rel="stylesheet" href="/front/css/tempPage.css">
   <script src="/back/LoginAndLogout/logout.js"></script>
+  <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
 </head>
 <body>
   <div class="container">
@@ -13,17 +19,16 @@
     </div>
 
     <div class="bener"> 
-        <h1>3. 카메라 관리 페이지</h1>
-        <h1 id="logout" onclick="logout()"> logout </h1>
+        <h1>2. 온습도 관리 페이지</h1>
+        <h1 id="logout" onclick="logout()"> logout </h1> 
+        <!-- 매장 온습도를 클릭하는순간 db.jsp가 살행되고 바로 temp page로 이동되게 설계   -->
     </div>
-
-    <!-- userName   -->
     <p id="userName">
       <a></a>
     </p>
 
     <p id="1userName">
-        
+        <a></a>
         <br>
         <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a> 
         <br>
@@ -32,37 +37,45 @@
         <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/mainpage.html'">메인페이지</a> 
     </p>
 
-    <div class="camera-stream">
-      <img src="http://your-raspberry-pi-ip:8080/?action=stream" id="cameraFeed" />
-      <!-- your-raspberry-pi-ip를 라즈베리 파이의 IP 주소로 대체하고, 포트는 MJPEG 스트리밍 서버가 사용하는 포트와 일치시킵니다. -->
-    </div>
 
+    <div class="graph">
+      <svg width="100%" height="200px">
+        <rect x="0" y="0" width="100%" height="200px" fill="blue" />
+      
+      </svg>
+      <!-- this area is graph page  -->
+      
+    </div>
+    
     <table class="table">
       <thead>
         <tr>
           <th>날짜</th>
-          <th>매장 이슈</th>
-          
+          <th>매장 온도</th>
+          <th>매장 습도</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>2023-10-15</td>
           <td>27℃</td>
-          
+          <td>90%</td>
         </tr>
         <tr>
           <td>2023-10-14</td>
           <td>26℃</td>
-          
+          <td>85%</td>
         </tr>
-        
+        <tr>
+          <td>2023-10-13</td>
+          <td>25℃</td>
+          <td>80%</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </body>
 </html>
-
 
 <script>
     // 세션 스토리지에서 유저 ID를 가져오는 함수

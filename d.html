@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Data Graph</title>
+    <!-- Chart.js 스크립트 포함 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- 그래프를 표시할 canvas 요소 -->
+    <canvas id="dataChart" width="400" height="200"></canvas>
+
+    <script>
+        // JavaScript를 사용하여 세션 스토리지에 저장된 값을 가져오기
+        var temperatureValue = 25;
+        var humidityValue = 66.5;
+        var dustValue = 25.36;
+        var timeValue = "2022-06-05 15:52:12";
+
+        // 그래프를 그리기 위한 데이터
+        var data = {
+            labels: [timeValue], // 시간
+            datasets: [
+                {
+                    label: '온도 (°C)',
+                    data: [temperatureValue],
+                    borderColor: 'rgb(255, 0, 0)',
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: '습도 (%)',
+                    data: [humidityValue],
+                    borderColor: 'rgb(0, 0, 255)',
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: '미세먼지',
+                    data: [dustValue],
+                    borderColor: 'rgb(0, 255, 0)',
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        };
+
+        var ctx = document.getElementById('dataChart').getContext('2d');
+
+        // 그래프 생성
+        var myChart = new Chart(ctx, {
+            type: 'line', // 선 그래프
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>

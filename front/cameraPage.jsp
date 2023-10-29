@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*, java.sql.*"%>
+    <%request.setCharacterEncoding("utf-8"); %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -32,11 +37,13 @@
         <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/mainpage.html'">메인페이지</a> 
     </p>
 
-    <div class="camera-stream">
-      <img src="http://your-raspberry-pi-ip:8080/?action=stream" id="cameraFeed" />
-      <!-- your-raspberry-pi-ip를 라즈베리 파이의 IP 주소로 대체하고, 포트는 MJPEG 스트리밍 서버가 사용하는 포트와 일치시킵니다. -->
-    </div>
+    <div class="graph">
+      <svg width="100%" height="200px">
+        <rect x="0" y="0" width="100%" height="200px" fill="blue" />
+      </svg>
+      <!-- this area is camera page  -->
 
+    </div>
     <table class="table">
       <thead>
         <tr>
