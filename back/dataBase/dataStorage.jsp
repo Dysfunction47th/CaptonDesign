@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.sql.*, java.util.*"%>
+
+    
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Data Retrieval</title>
+    <title>Data Storage</title>
 </head>
 <body>
     <%
@@ -14,10 +18,6 @@
         String password = "root";
 
         Connection connection = null;
-        List<String> timeList = new ArrayList<>();
-        List<Float> temperatureList = new ArrayList<>();
-        List<Float> humidityList = new ArrayList<>();
-        List<Integer> dustList = new ArrayList<>();
 
         try {
             // JDBC 드라이버 로드
@@ -31,17 +31,17 @@
             String sql = "SELECT temperature, humidity, dust, time FROM data"; // 자신의 테이블 정보로 수정
             ResultSet result = statement.executeQuery(sql);
 
-            // 데이터 가져와 리스트에 추가
-            while (result.next()) {
-                String timeValue = result.getString("time");
+            if (result.next()) {
+                // 데이터 가져와 세션 속성에 저장
                 float temperatureValue = result.getFloat("temperature");
                 float humidityValue = result.getFloat("humidity");
                 int dustValue = result.getInt("dust");
+                String timeValue = result.getString("time");
 
-                timeList.add(timeValue);
-                temperatureList.add(temperatureValue);
-                humidityList.add(humidityValue);
-                dustList.add(dustValue);
+                session.setAttribute("temperatureValue", temperatureValue);
+                session.setAttribute("humidityValue", humidityValue);
+                session.setAttribute("dustValue", dustValue);
+                session.setAttribute("timeValue", timeValue);
             }
 
             // 연결 종료
@@ -59,16 +59,6 @@
                 }
             }
         }
-
-        // 데이터를 JSON 형식으로 변환하여 세션 스토리지에 저장
-        String jsonData = "{ \"time\": " + new Gson().toJson(timeList) + ", \"temperature\": " + new Gson().toJson(temperatureList) + ", \"humidity\": " + new Gson().toJson(humidityList) + ", \"dust\": " + new Gson().toJson(dustList) + " }";
-        session.setAttribute("jsonData", jsonData);
     %>
-
-    <script>
-        // 데이터를 JSON 형식으로 변환하여 세션 스토리지에 저장
-        var jsonData = '<%=(String) session.getAttribute("jsonData") %>';
-        sessionStorage.setItem("jsonData", jsonData);
-    </script>
 </body>
 </html>

@@ -30,11 +30,12 @@
     <p id="1userName">
         <a></a>
         <br>
-        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a> 
+        <a href="#" , onclick="location.href='http://localhost:8088/test/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
         <br>
-        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/cameraPage.html'">주방관리</a>
+        <a href="#" , onclick="location.href='http://localhost:8088/front/cameraPage.jsp'">주방관리</a>
         <br>
-        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/mainpage.html'">메인페이지</a> 
+        <a href="#" , onclick="location.href='http://localhost:8088/front/mainpage.html'">메인페이지</a> 
+
     </p>
 
 
