@@ -1,9 +1,16 @@
 
 
+// function mainMove() {
+//     window.location.href = "mainpage.jsp";
+    
+// }
+
+
 function mainMove() {
-    window.location.href = "mainpage.jsp";
+    window.location.href = "mainpage.html";
     
 }
+
 
 function testMove() {
     window.location.href = "./test.jsp";

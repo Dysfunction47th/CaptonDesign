@@ -6,7 +6,8 @@ from datetime import datetime
 
 try:
     connection = mysql.connector.connect(
-        host='172.168.25.31',
+        # host='172.168.25.31',
+        host='localhost',
         database='test',  # 실제 데이터베이스 이름으로 변경
         user='root',           # 실제 사용자 이름으로 변경
         password='root'        # 실제 비밀번호로 변경
