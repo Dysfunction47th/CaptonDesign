@@ -7,15 +7,10 @@
 
 
 function mainMove() {
-    window.location.href = "mainpage.html";
+    window.location.href = "http://localhost:8080/JSP2/CaptonDesign/front/mainpage.jsp";
     
 }
 
-
-function testMove() {
-    window.location.href = "./test.jsp";
-    
-}
 
 
 
