@@ -38,11 +38,8 @@
     </p>
 
     <div class="graph">
-      <svg width="100%" height="200px">
-        <rect x="0" y="0" width="100%" height="200px" fill="blue" />
-      </svg>
-      <!-- this area is camera page  -->
-
+       	<img x="0" y="0" width="100%"src="http://192.168.0.2:8090/?action=stream"/>
+  
     </div>
     <table class="table">
       <thead>
