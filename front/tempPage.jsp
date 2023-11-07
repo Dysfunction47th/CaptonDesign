@@ -28,11 +28,12 @@
     <p id="1userName">
         <a></a>
         <br>
-        <a href="#" , onclick="location.href='../front/tempPage.jsp'">매장 온습도</a>
-        <br>
-        <a href="#" , onclick="location.href='../front/cameraPage.jsp'">주방관리</a>
-        <br>
-        <a href="#" , onclick="location.href='../front/mainpage.jsp'">메인페이지</a>
+        
+        <a href="#" , onclick="location.href='http://localhost:8080/Capton/CaptonDesign/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
+        <br>  
+        <a href="#" , onclick="location.href='http://localhost:8080/Capton/CaptonDesign/back/dataBase/CameraDataStorage.jsp'">주방관리</a>
+        <br>       
+        <a href="#" , onclick="location.href='http://localhost:8080/Capton/CaptonDesign/front/mainpage.jsp'">메인페이지</a> 
     </p>
 
     <div class="graph">
@@ -56,6 +57,8 @@
 
  <script>
     // 세션 스토리지에서 데이터 가져오기
+    
+    
 // 세션 스토리지에서 데이터 가져오기
 const temperatureValue1 = localStorage.getItem("temperatureValue1") || "";
 const humidityValue1 = localStorage.getItem("humidityValue1") || "";

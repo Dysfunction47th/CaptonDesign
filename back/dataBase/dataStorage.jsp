@@ -15,7 +15,7 @@
     <%
         // 필요한 Java 클래스와 JDBC 드라이버 임포트
         String driver = "org.mariadb.jdbc.Driver";
-        String url = "jdbc:mariadb://192.168.40.94:3306/testPythonData"; // 자신의 데이터베이스 정보로 수정
+        String url = "jdbc:mariadb://192.168.0.203:3306/testPythonData"; // 자신의 데이터베이스 정보로 수정
         String username = "root";
         String password = "root";
 
@@ -96,7 +96,8 @@
         
         %>
         <script type="text/javascript">
-        window.location.href = "http://localhost:8080/JSP2/CaptonDesign/front/tempPage.jsp";
+        window.location.href = "../../front/tempPage.jsp";
+        //window.location.href = 'http://localhost:8080/Capton/CaptonDesign/back/dataBase/dataStorage.jsp'
         </script>
     <% } catch (Exception e) {
         e.printStackTrace();
@@ -109,6 +110,7 @@
             }
         }
     }
+    //response.sendRedirect("../../front/tempPage.jsp");
     %>
 </body>
 </html>

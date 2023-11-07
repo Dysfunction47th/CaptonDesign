@@ -38,9 +38,9 @@
         <p id="1userName">
             
             <br>
-            <a href="#" , onclick="location.href='http://localhost:8080/JSP2/CaptonDesign/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
-            <br>
-            <a href="#" , onclick="location.href='http://localhost:8080/JSP2/CaptonDesign/front/cameraPage.jsp'">주방관리</a>    
+            <a href="#" , onclick= "location.href='http://localhost:8080/Capton/CaptonDesign/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
+            <br>  
+            <a href="#" , onclick="location.href='http://localhost:8080/Capton/CaptonDesign/back/dataBase/CameraDataStorage.jsp'">주방관리</a>    
         </p>
 
     </div>
@@ -61,19 +61,19 @@
 
 
 }
-
-// 페이지 로딩 시 실행되는 함수
-window.onload = function () {
-
-   const userNickname = getUserID();
-
-   // 유저 ID가 있으면 해당 nickname을 사용하여 <li> 요소를 수정.
-   if (userNickname) {
-       const userMenu = document.getElementById("userName");
-       const anchor = userMenu.querySelector("a");
-       anchor.textContent = `${userNickname}님`;
-   }
-};
+	
+	// 페이지 로딩 시 실행되는 함수
+	window.onload = function () {
+	
+	   const userNickname = getUserID();
+	
+	   // 유저 ID가 있으면 해당 nickname을 사용하여 <li> 요소를 수정.
+	   if (userNickname) {
+	       const userMenu = document.getElementById("userName");
+	       const anchor = userMenu.querySelector("a");
+	       anchor.textContent = `${userNickname}님`;
+	   }
+	};
 
 // 이후 보안을 위해 로컬 스토리지 초기화
 </script>
