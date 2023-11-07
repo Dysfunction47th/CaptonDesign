@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="../front/css/loginScreen.css">
+    <link rel="stylesheet" href="/front/css/loginScreen.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
-    <script src="../back/LoginAndLogout/login.js"></script>
+    <script src="/back/LoginAndLogout/login.js"></script>
     
 
 </head>

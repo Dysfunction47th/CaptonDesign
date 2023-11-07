@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Camera Page</title>
-  <link rel="stylesheet" href="../front/css/cameraPage.css">
-  <script src="../back/LoginAndLogout/logout.js"></script>
+  <link rel="stylesheet" href="/front/css/cameraPage.css">
+  <script src="/back/LoginAndLogout/logout.js"></script>
 </head>
 <body>
   <div class="container">
@@ -30,16 +30,19 @@
     <p id="1userName">
         
         <br>
-        <a href="#" , onclick="location.href='http://localhost:8080/JSP4/CaptonDesign/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
+        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/tempPage.html'">매장 온습도</a> 
         <br>
-        <a href="#" , onclick="location.href='http://localhost:8080/JSP4/CaptonDesign/front/cameraPage.jsp#'">주방관리</a>
+        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/cameraPage.html'">주방관리</a>
         <br>
-        <a href="#" , onclick="location.href='http://localhost:8080/JSP4/CaptonDesign/front/mainpage.jsp'">메인페이지</a> 
+        <a href="#" , onclick="location.href='http://127.0.0.1:5501/front/mainpage.html'">메인페이지</a> 
     </p>
 
     <div class="graph">
-       	<img x="0" y="0" width="100%"src="http://192.168.0.2:8090/?action=stream"/>
-  
+      <svg width="100%" height="200px">
+        <rect x="0" y="0" width="100%" height="200px" fill="blue" />
+      </svg>
+      <!-- this area is camera page  -->
+
     </div>
     <table class="table">
       <thead>

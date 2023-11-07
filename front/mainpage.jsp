@@ -13,9 +13,9 @@
     <title> Main Page</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="../front/css/mainPage.css">
-    <script src="../back/LoginAndLogout/logout_jsp.js"></script>
-    <script src="../back/LoginAndLogout/login_jsp.js"></script>
+    <link rel="stylesheet" href="/front/css/mainPage.css">
+    <script src="/back/LoginAndLogout/logout_jsp.js"></script>
+    <script src="/back/LoginAndLogout/login_jsp.js"></script>
 
 </head>
 
@@ -38,9 +38,9 @@
         <p id="1userName">
             
             <br>
-            <a href="#" , onclick="location.href='http://localhost:8080/JSP2/CaptonDesign/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
+            <a href="#" , onclick="location.href='http://localhost:8088/test/back/dataBase/dataStorage.jsp'">매장 온습도</a> 
             <br>
-            <a href="#" , onclick="location.href='http://localhost:8080/JSP2/CaptonDesign/front/cameraPage.jsp'">주방관리</a>    
+            <a href="#" , onclick="location.href='http://localhost:8088/front/cameraPage.jsp'">주방관리</a>    
         </p>
 
     </div>
