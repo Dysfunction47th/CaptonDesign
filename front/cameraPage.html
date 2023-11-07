@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="/front/css/cameraPage.css">
   <script src="/back/LoginAndLogout/logout.js"></script>
 </head>
+
+
+
+
+
 <body>
   <div class="container">
     <div class="appName">
@@ -33,8 +38,7 @@
     </p>
 
     <div class="camera-stream">
-      <img src="http://your-raspberry-pi-ip:8080/?action=stream" id="cameraFeed" />
-      <!-- your-raspberry-pi-ip를 라즈베리 파이의 IP 주소로 대체하고, 포트는 MJPEG 스트리밍 서버가 사용하는 포트와 일치시킵니다. -->
+      <img src="" alt="">
     </div>
 
     <table class="table">
@@ -46,17 +50,145 @@
         </tr>
       </thead>
       <tbody>
+
+        <!--timeValue1   -->
         <tr>
-          <td>2023-10-15</td>
-          <td>27℃</td>
           
-        </tr>
-        <tr>
-          <td>2023-10-14</td>
-          <td>26℃</td>
+          <td id="timeValue1"> 
+            <script> 
+                document.getElementById("timeValue1").innerText = `${localStorage.getItem("CameraTimeValue1")}`;
+                
+                // 클릭 이벤트 핸들러 추가
+                document.getElementById("timeValue1").addEventListener("click", function() {
+                  
+                  // 클릭 시 "camera_error1.html"로 이동
+                  window.location.href = "camera_error1.html";
+                });
+            </script> 
+          </td> 
           
+          <td id="timeValue1Error">
+            <script>
+              
+              if (timeValue1 != false) {
+                // if 문이 참일 때 "이슈"를 td 요소에 표시
+                document.getElementById("timeValue1Error").innerText = "이슈";
+              }
+            </script>
+          </td>
         </tr>
         
+        <!--timeValue2   -->
+        
+        <tr>
+          <td id="timeValue2"> 
+            <script> 
+                document.getElementById("timeValue2").innerText = `${localStorage.getItem("CameraTimeValue2")}`;
+                
+                // 클릭 이벤트 핸들러 추가
+                document.getElementById("timeValue2").addEventListener("click", function() {
+                  
+                  // 클릭 시 "camera_error2.html"로 이동
+                  window.location.href = "camera_error2.html";
+                });
+            </script> 
+          </td> 
+          
+          
+          <td id="timeValue2Error">
+            <script>
+              
+              if (timeValue2 != false) {
+                // if 문이 참일 때 "이슈"를 td 요소에 표시
+                document.getElementById("timeValue2Error").innerText = "이슈";
+              }
+            </script>
+          </td>
+        </tr>
+        
+        <!--timeValue3   -->
+        
+        <tr>
+          <td id="timeValue3"> 
+            <script> 
+                document.getElementById("timeValue3").innerText = `${localStorage.getItem("CameraTimeValue3")}`;
+                
+                // 클릭 이벤트 핸들러 추가
+                document.getElementById("timeValue3").addEventListener("click", function() {
+                  
+                  // 클릭 시 "camera_error3.html"로 이동
+                  window.location.href = "camera_error3.html";
+                });
+            </script> 
+          </td> 
+
+          <!-- 아이디가 "timeValue3"인 td 요소 추가 -->
+          <td id="timeValue3Error">
+            <script>
+              
+              if (timeValue3 != false) {
+                // if 문이 참일 때 "이슈"를 td 요소에 표시
+                document.getElementById("timeValue3Error").innerText = "이슈";
+              }
+            </script>
+          </td>
+        </tr>
+        
+        <!--timeValue4   -->
+        
+        <tr>
+          <td id="timeValue4"> 
+            <script> 
+                document.getElementById("timeValue4").innerText = `${localStorage.getItem("CameraTimeValue4")}`;
+                
+                // 클릭 이벤트 핸들러 추가
+                document.getElementById("timeValue4").addEventListener("click", function() {
+                  
+                  // 클릭 시 "camera_error4.html"로 이동
+                  window.location.href = "camera_error4.html";
+                });
+            </script> 
+          </td> 
+
+          <!-- 아이디가 "timeValue4"인 td 요소 추가 -->
+          <td id="timeValue4Error">
+            <script>
+              
+              if (timeValue4 != false) {
+                // if 문이 참일 때 "이슈"를 td 요소에 표시
+                document.getElementById("timeValue4Error").innerText = "이슈";
+              }
+            </script>
+          </td>
+        </tr>
+
+        <!--timeValue5   -->
+
+        <tr>
+          <td id="timeValue5"> 
+            <script> 
+                document.getElementById("timeValue5").innerText = `${localStorage.getItem("CameraTimeValue5")}`;
+                
+                // 클릭 이벤트 핸들러 추가
+                document.getElementById("timeValue5").addEventListener("click", function() {
+                  
+                  // 클릭 시 "camera_error5.html"로 이동
+                  window.location.href = "camera_error5.html";
+                });
+            </script> 
+          </td> 
+
+          <!-- 아이디가 "timeValue5"인 td 요소 추가 -->
+          <td id="timeValue5Error">
+            <script>
+              
+              if (timeValue5 != false) {
+                // if 문이 참일 때 "이슈"를 td 요소에 표시
+                document.getElementById("timeValue5Error").innerText = "이슈";
+              }
+            </script>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -93,4 +225,19 @@
   };
   
   // 이후 보안을 위해 로컬 스토리지 초기화
+  </script>
+
+
+
+  
+  <script>
+  
+    localStorage.setItem("CameraTimeValue1" , "2023-06-11 10:00:00") || "";
+    localStorage.setItem("CameraTimeValue2" , "2023-06-11 11:00:00") || "";
+    localStorage.setItem("CameraTimeValue3" , "2023-06-11 12:00:00") || "";
+    localStorage.setItem("CameraTimeValue4" , "2023-06-11 13:00:00") || "";
+    localStorage.setItem("CameraTimeValue5" , "2023-06-11 14:00:00") || "";
+    
+
+    
   </script>
